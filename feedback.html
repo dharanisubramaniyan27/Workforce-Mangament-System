@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Feedback</title>
+    <link rel="stylesheet" href="performance.css">
+</head>
+<body>
+    <h1>Feedback for <span id="employeeName"></span></h1>
+    
+    <form id="feedbackForm">
+        <div class="rating-section">
+            <label>Productivity:</label>
+            <div class="stars" data-category="productivity">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+        </div>
+
+        <!-- Repeat the rating sections for other criteria like Quality, Time Management, etc. -->
+        <div class="rating-section">
+            <label>Quality of Work:</label>
+            <div class="stars" data-category="quality">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+        </div>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <button onclick="goBack()">Back</button>
+
+    <script src="feedback.js"></script>
+</body>
+</html>

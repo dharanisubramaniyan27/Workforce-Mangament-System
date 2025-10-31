@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shift Board</title>
+  <link rel="stylesheet" href="shift.css">
+</head>
+<body>
+  <div class="shift-board">
+    <header>
+      <h1>Shift Board</h1>
+      <div class="date-picker">
+        <input id="date-picker" type="date" placeholder="Select Date">
+        <span id="selected-week">Select a date to show the week</span>
+      </div>
+    </header>
+    
+    <table>
+      <thead>
+        <tr id="week-header">
+          <th>Employee Name</th>
+          <th>MON</th>
+          <th>TUE</th>
+          <th>WED</th>
+          <th>THU</th>
+          <th>FRI</th>
+          <th>SAT</th>
+          <th>SUN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>Michael Jose</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+          <!-- Add more employees here -->
+        <tr>
+            <td>Ken Williams</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift On-leave">On leave</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Chandy Rose</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Tom Smith</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Mary Jason</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Steven Holmes</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift On-leave">On leave</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Curtis Brian</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Steven King</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="shift editable-morning">6:00 - 14:00 <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+        <tr>
+            <td>Neena Kochhar</td>
+            <td class="shift On-leave">On leave</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift editable-afternoon">14:00 - 22:00 <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="shift flexible">Flexible <br> 08 hrs.</td>
+            <td class="day-off">Week off</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="shift.js"></script>
+</body>
+</html>

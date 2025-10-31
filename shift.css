@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .shift-board {
+    width: 90%;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .date-picker {
+    display: flex;
+    align-items: center;
+  }
+  
+  #date-picker {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  #selected-week {
+    font-weight: bold;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+  }
+  
+  thead th {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  tbody td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .shift {
+    background-color: #e9f7ff;
+    color: #333;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .shift.flexible {
+    background-color: #dfd;
+  }
+
+  .shift.editable{
+    cursor: pointer;
+    color:  #333;
+  }
+  .day-off {
+    background-color: #f9f9f9;
+    color: #aaa;
+  }
+  
+  .On-leave{
+    background-color: #ffd;
+  }
+  
+  /* Add colors for specific shift times */
+  .shift.editable-morning {
+    background-color: #e0f7fa; /* Light Cyan for 6:00 - 14:00 */
+  }
+  
+  .shift.editable-afternoon {
+    background-color: #fde; /* Light Coral for 14:00 - 22:00 */
+  }
+
+  

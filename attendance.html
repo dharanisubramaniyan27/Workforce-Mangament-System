@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Attendance System</title>
+    <style>
+        /* Basic styles for better appearance */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert {
+            display: none;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Worker Attendance System</h1>
+        <form id="Attendance">
+            <div>
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" required>
+            </div>
+            <br>
+            <div>
+                <label for="Entry_Time">Entry Time:</label>
+                <input type="datetime-local" id="Entry_Time" required>
+            </div>
+            <br>
+            <div>
+                <label for="Date">Date:</label>
+                <input type="date" id="Date" required>
+            </div>
+            <br>
+            <button type="submit">Submit Attendance</button>
+        </form>
+        <div class="alert">Attendance submitted successfully!</div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase SDK v9 modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getDatabase, ref, push, set } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAPYzjQzHar5H2mmobR6dkDWml5pUAR-T4",
+            authDomain: "workforce-ms.firebaseapp.com",
+            databaseURL: "https://workforce-ms-default-rtdb.firebaseio.com",
+            projectId: "workforce-ms",
+            storageBucket: "workforce-ms.appspot.com",
+            messagingSenderId: "1070252157346",
+            appId: "1:1070252157346:web:791c2176ccd98c7ec1aafb",
+            measurementId: "G-MDC15KJJB1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Event listener for the attendance form submission
+        document.getElementById("Attendance").addEventListener("submit", submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            // Get form values
+            var name = document.getElementById("Name").value;
+            var entryTime = document.getElementById("Entry_Time").value;
+            var date = document.getElementById("Date").value;
+
+            // Save data to Firebase
+            saveAttendance(name, entryTime, date);
+
+            // Show success alert
+            document.querySelector('.alert').style.display = "block";
+
+            // Hide alert after 3 seconds
+            setTimeout(() => {
+                document.querySelector('.alert').style.display = "none";
+            }, 3000);
+
+            // Reset the form
+            document.getElementById("Attendance").reset();
+        }
+
+        // Function to save attendance data to Firebase
+        function saveAttendance(name, entryTime, date) {
+            const attendanceRef = ref(database, 'Attendance');
+            const newAttendanceRef = push(attendanceRef);
+            set(newAttendanceRef, {
+                Name: name,
+                Entry_Time: entryTime,
+                Date: date
+            })
+            .then(() => {
+                console.log("Data saved successfully.");
+            })
+            .catch((error) => {
+                console.error("Error saving data: ", error);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

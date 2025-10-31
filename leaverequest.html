@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request Form</title>
+    <link rel="stylesheet" href="leaverequest.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Leave Request</h2>
+        <form id="leaveForm">
+            <div class="form-group">
+                <label for="leaveDate">Leave Date:</label>
+                <input type="date" id="leaveDate" name="leaveDate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="leaveReason">Reason for Leave:</label>
+                <textarea id="leaveReason" name="leaveReason" rows="4" required placeholder="Enter your reason for leave"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit Request</button>
+            </div>
+        </form>
+        <p id="message"></p>
+    </div>
+    <img class="imgnok" src="pngwing.com.png" >
+    <script src="leaverequest.js"></script>
+</body>
+</html>

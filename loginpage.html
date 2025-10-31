@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup Page</title>
+    <link rel="stylesheet" href="loginpage.css"> 
+    <style>
+        .form-container {
+            display: none; /* Initially hide all forms */
+        }
+
+        .active {
+            display: block; /* Show active form */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">NOKIA</h1>
+
+    <!-- Login Form -->
+    <div class="login-container form-container active" id="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="login-btn">Login</button>
+            </div>
+            <p id="error-message" class="error-message"></p>
+        </form>
+        <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="signup-container form-container" id="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-group">
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </div>
+            <p id="signup-message" class="signup-message"></p>
+        </form>
+        <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+    </div>
+
+    <script>
+        // Switch between login and signup forms
+        document.getElementById('show-signup').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('login-container').classList.remove('active');
+            document.getElementById('signup-container').classList.add('active');
+        });
+
+        document.getElementById('show-login').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('signup-container').classList.remove('active');
+            document.getElementById('login-container').classList.add('active');
+        });
+
+        // Login Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            const correctEmail = 'admin@example.com';
+            const correctPassword = 'password123';
+            const correctEmailemp = 'emp@example.com';
+            const correctPasswordemp = 'password1234';
+
+            if (email === correctEmail && password === correctPassword) {
+                errorMessage.style.color = 'green';
+                errorMessage.textContent = 'Login successful!';
+                
+                // Redirect to dashboard page after successful login
+                setTimeout(function() {
+                    window.location.href = 'admin.html'; // Replace with your actual dashboard URL
+                }, 1000);
+            }
+            else if (email === correctEmailemp && password === correctPasswordemp) {
+                errorMessage.style.color = 'green';
+                errorMessage.textContent = 'Login successful!';
+            
+                // Redirect to dashboard page after successful login
+                setTimeout(function() {
+                    window.location.href = 'employee.html'; // Replace with your actual dashboard URL
+                }, 1000);    
+            } else {
+                errorMessage.style.color = 'red';
+                errorMessage.textContent = 'Invalid email or password.';
+            }
+        });
+
+        // Signup Form submission
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const signupMessage = document.getElementById('signup-message');
+
+            if (name && email && password) {
+                signupMessage.style.color = 'green';
+                signupMessage.textContent = 'Sign Up successful! Redirecting to dashboard...';
+                
+                // Redirect to dashboard page after successful signup
+                setTimeout(function() {
+                    window.location.href = 'admin.html'; // Replace with your actual dashboard URL
+                }, 1000);
+            } else {
+                signupMessage.style.color = 'red';
+                signupMessage.textContent = 'Please fill in all fields.';
+            }
+        });
+    </script>
+</body>
+</html>

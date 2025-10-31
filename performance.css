@@ -1,0 +1,120 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #184b78;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 0;
+    font-weight: normal;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+/* Employee List */
+#employee-list {
+    margin-bottom: 30px;
+}
+
+#employee-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#employee-list ul li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#employee-list ul li:hover {
+    background-color: #ddd;
+}
+
+/* Feedback Form */
+#feedback-form {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Star Rating */
+.star-rating {
+    display: inline-block;
+    font-size: 24px;
+    color: #ffd700;
+    cursor: pointer;
+}
+
+.star {
+    display: inline-block;
+    margin-right: 5px;
+    color: transparent; /* Start with transparent stars */
+    -webkit-text-stroke: 1px #ccc; /* Grey outline initially */
+    transition: color 0.3s, -webkit-text-stroke 0.3s; /* Smooth transition */
+}
+
+.star.selected {
+    color: #ffd700; /* Filled gold color inside */
+    -webkit-text-stroke: 0; /* Remove stroke when filled */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button[type="button"]:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* Hide initially */
+#feedback-form {
+    display: none;
+}
+
+#metrics {
+    margin-top: 40px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}

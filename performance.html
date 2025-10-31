@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Feedback & Shift Scheduling</title>
+    <link rel="stylesheet" href="performance.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employee Feedback System</h1>
+        </header>
+        
+        <!-- Employee List -->
+        <section id="employee-list">
+            <h2>Select an Employee</h2>
+            <ul>
+                <li onclick="selectEmployee('Michael Jose')">Michael Jose</li>
+                <li onclick="selectEmployee('Ken Williams')">Ken Williams</li>
+                <li onclick="selectEmployee('Chandy Rose')">Chandy Rose</li>
+                <li onclick="selectEmployee('Tom Smith')">Tom Smith</li>
+                <li onclick="selectEmployee('Mary Jason')">Mary Jason</li>
+                <li onclick="selectEmployee('Steven Holmes')">Steven Holmes</li>
+                <li onclick="selectEmployee('Curtis Brian')">Curtis Brian</li>
+                <li onclick="selectEmployee('Steven King')">Steven King</li>
+                <li onclick="selectEmployee('Neens Kochhar')">Neens Kochhar</li>
+            </ul>
+            <button type="button" onclick="showOverallPerformance()">Overall Performance</button> <!-- Added button -->
+        </section>
+
+        <!-- Feedback Form -->
+        <section id="feedback-form" style="display: none;">
+            <h2>Feedback for <span id="employee-name"></span></h2>
+            <form id="feedbackForm">
+                <!-- Productivity Rating -->
+                <label>Productivity:
+                    <div class="star-rating" id="productivity-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'productivity')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'productivity')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'productivity')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'productivity')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'productivity')">&#9734;</span>
+                    </div>
+                    <span id="productivity-label"></span>
+                </label>
+
+                <!-- Quality of Work Rating -->
+                <label>Quality of Work:
+                    <div class="star-rating" id="quality-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'quality')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'quality')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'quality')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'quality')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'quality')">&#9734;</span>
+                    </div>
+                    <span id="quality-label"></span>
+                </label>
+
+                <!-- Goal Attainment Rating -->
+                <label>Goal Attainment:
+                    <div class="star-rating" id="goal-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'goal')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'goal')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'goal')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'goal')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'goal')">&#9734;</span>
+                    </div>
+                    <span id="goal-label"></span>
+                </label>
+
+                <!-- Time Management Rating -->
+                <label>Time Management:
+                    <div class="star-rating" id="time-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'time')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'time')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'time')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'time')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'time')">&#9734;</span>
+                    </div>
+                    <span id="time-label"></span>
+                </label>
+
+                <!-- Team Collaboration Rating -->
+                <label>Team Collaboration:
+                    <div class="star-rating" id="collaboration-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'collaboration')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'collaboration')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'collaboration')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'collaboration')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'collaboration')">&#9734;</span>
+                    </div>
+                    <span id="collaboration-label"></span>
+                </label>
+
+                <!-- Adaptability Rating -->
+                <label>Adaptability:
+                    <div class="star-rating" id="adaptability-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'adaptability')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'adaptability')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'adaptability')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'adaptability')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'adaptability')">&#9734;</span>
+                    </div>
+                    <span id="adaptability-label"></span>
+                </label>
+
+                <!-- Innovation Rating -->
+                <label>Innovation:
+                    <div class="star-rating" id="innovation-stars">
+                        <span class="star" data-rating="1" onclick="setRating(this, 'innovation')">&#9734;</span>
+                        <span class="star" data-rating="2" onclick="setRating(this, 'innovation')">&#9734;</span>
+                        <span class="star" data-rating="3" onclick="setRating(this, 'innovation')">&#9734;</span>
+                        <span class="star" data-rating="4" onclick="setRating(this, 'innovation')">&#9734;</span>
+                        <span class="star" data-rating="5" onclick="setRating(this, 'innovation')">&#9734;</span>
+                    </div>
+                    <span id="innovation-label"></span>
+                </label>
+
+                <button type="button" onclick="submitFeedback()">Submit</button>
+                <button type="button" onclick="goBack()">Back</button>
+            </form>
+        </section>
+
+        <!-- Overall Performance Section -->
+        <section id="overall-performance" style="display: none;">
+            <h2>Overall Performance</h2>
+            <canvas id="overall-performance-chart"></canvas>
+            <button type="button" onclick="goBackToEmployeeList()">Back to Employee List</button>
+        </section>
+        
+    </div>
+
+    <script src="performance.js"></script>
+</body>
+</html>
